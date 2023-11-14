@@ -1,0 +1,28 @@
+{
+  "name": "hust-calendar",
+  "version": "1.0.0",
+  "description": "Calendar for my hust courses.",
+  "scripts": {
+    "start": "npx vite",
+    "dev": "npx vite",
+    "build": "npx vite build",
+    "preview": "npx vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DawnEver/hust-calendar"
+  },
+  "bugs": {
+    "url": "https://github.com/DawnEver/hust-calendar/issues",
+    "email": "mingyangbao@hust.edu.cn"
+  },
+  "homepage": "https://github.com/DawnEver/hust-calendar",
+  "license": "MIT",
+  "author": "Bennett",
+  "devDependencies": {
+    "vite": "latest"
+  },
+  "dependencies": {
+    "fullcalendar": "latest"
+  }
+}
