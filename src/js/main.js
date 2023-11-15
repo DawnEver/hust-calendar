@@ -1,4 +1,4 @@
-import { Calendar } from '@fullcalendar/core'
+import { Calendar,formatRange } from '@fullcalendar/core'
 import interactionPlugin from '@fullcalendar/interaction'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
@@ -46,13 +46,35 @@ const calendar = new Calendar(calendarEl, {
     }
     calendar.unselect()
   },
+
   eventClick: function(arg) {
-    if (confirm('Are you sure you want to delete this event?')) {
-      arg.event.remove()
+
+    var j=eval('(' + arg.event.extendedProps.txt + ')');
+    
+    var jsmc=j["JSMC"];
+    if(jsmc==='null'){
+      jsmc='';				
+    }
+    
+    var jgxm=j["JGXM"];
+    if(jgxm==='null'){
+      jgxm='';				
+    }
+
+    var timeRange=formatRange(arg.event.start,arg.event.end,
+      {
+        hour: 'numeric',
+        minute: '2-digit',
+        meridiem: false
+    });
+    if (confirm(arg.event.title+
+      "\n"+timeRange+
+      "\n"+jgxm+
+      "\n"+jsmc+
+      "\nOK to delete this event.")) {
+      arg.event.remove();
     }
   },
-
-  
 })
 
 calendar.render()
